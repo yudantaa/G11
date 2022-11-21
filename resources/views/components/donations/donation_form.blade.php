@@ -8,11 +8,13 @@
     @livewireStyles
     @vite('resources/js/app.js')
     @vite('resources/css/app.css')
+
 </head>
 <body>
+
     <h1 class="mx-auto w-full text-center my-12 font-bold text-4xl text-slate-600 ">Donate Today!</h1>
         @livewire('donation-form')
 
-    @livewireStyles
+    @livewireScripts
 </body>
 </html>
