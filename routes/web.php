@@ -56,3 +56,9 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/donate_before_login', function () {
     return view('components.donate_before_login');
 })->name('donation');
+
+
+//donation form route
+Route::get('/donate', function(){
+    return view('components.donations.donation_form');
+});

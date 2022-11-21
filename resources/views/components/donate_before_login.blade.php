@@ -23,7 +23,7 @@
                 <p class="text-[20px] text-justify">
                     Your contribution to Merry Meal will make a difference in the lives of our elders and the homebound. Every dollar counts in ending senior hunger. Please be as charitable as you can. And I appreciate your help in advance. Every day, our drivers and volunteers visit the most vulnerable members of our communities, the elders. Simply stated, a meal is provided. In actuality, though, these deliveries bring far more everyday engagement and camaraderie. This visitor may be the only person the senior sees all day on some days. It is critical that we check on our elderly neighbors.
                 </p>
-                <a href=""><button class="h-[63px] w-[370px] bg-[#FFFCF0] text-[#A07C00] border-2 border-[#A07C00] box-border hover:scale-105 duration-500">Start to Donate</button></a>
+                <a href="/donate"><button class="h-[63px] w-[370px] bg-[#FFFCF0] text-[#A07C00] border-2 border-[#A07C00] box-border hover:scale-105 duration-500">Start to Donate</button></a>
             </div> <!-- donate-section-two-content -->
         </div> <!-- donate-section-two -->
     </div> <!-- bg-donate-before-login -->
