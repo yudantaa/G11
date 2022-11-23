@@ -24,6 +24,7 @@ class DonationForm extends Component
     public $totalSteps = 4;
     public $currentStep = 1;
 
+
     public function setStep(){
         $this -> currentStep=1;
     }
@@ -37,7 +38,7 @@ class DonationForm extends Component
         $this->currentStep++;
         if($this->currentStep > $this->totalSteps){
             $this->currentStep = $this->totalSteps;
-            dd($this->currentStep);
+            // dd($this->currentStep);
         }
     }
 
@@ -48,5 +49,14 @@ class DonationForm extends Component
         }
     }
 
+    public $currentDonationType = 1;
 
+    public function setDaily(){
+        $this->currentDonationType = 1;
+    }
+    public function setMonthly(){
+        $this->currentDonationType = 2;
+    }
 }
+
+

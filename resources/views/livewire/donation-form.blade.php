@@ -3,7 +3,7 @@
 
     @if($currentStep == 1)
         {{-- STEP 1 --}}
-        <div class="step1 form-box bg-slate-100 max-w-4xl px-6 py-6 mx-auto mt-12 shadow-lg">
+        <div class="step1 form-box mb-6 bg-slate-100 max-w-4xl px-6 py-6 mx-auto mt-12 shadow-lg">
             <table class="bg-slate-600 w-full text-center my-5 shadow-xl">
                 <tr>
                     <td><h1 class="text-2xl pt-6 font-bold text-yellow-300">Step 1</h1> <h4 class="font-bold pb-6 text-white">Donation Selection</h4></td>
@@ -15,21 +15,89 @@
             <hr>
             <div class="form-content ml-12">
                 <label for="subscriptionType" class="text-xl py-6 font-bold">Donation Type</label> <br>
-            <select class="h-12 pl-6 bg-slate-200 w-8/12 font-bold mt-6" name="subscriptionType" id="subscriptionType" wire:model="subscriptionType">
-                <option value="">== Select Subscription Type ==</option>
-                <option value="daily">Daily</option>
-                <option value="monthly">Monthly</option>
-            </select> <br> <br>
+            <div class="donation-type">
+                    <button type="button" class="btn-square bg-slate-400 w-2/12 text-white font-bold text-l my-4 active:bg-yellow-600 focus:bg-yellow-600" wire:click="setDaily()">Daily</button>
+                    <button type="button" class="btn-square bg-slate-400 w-2/12 text-white font-bold text-l my-4 active:bg-yellow-600 focus:bg-yellow-600" wire:click="setMonthly()">Monthly</button>
+            </div>
             <span class="text-danger">@error('subscriptionType'){{ $message }}@enderror</span>
-
+                <br>
             <label for="donationAmount" class="text-xl py-6 font-bold">Donation Amount</label> <br>
-            <select class="h-12 pl-6 bg-slate-200 w-8/12 font-bold mt-6"name="donationAmount" id="donationAmount" wire:model="donationAmount">
-                <option value="">== Select Donation Amount ==</option>
-                <option value="1">$ 1</option>
-                <option value="10">$ 10</option>
-                <option value="25">$ 25</option>
-                <option value="50">$ 50</option>
-            </select>
+           @if ($currentDonationType == 1)
+                <div class="amount">
+<ul class="columns-2 w-6/12  ">
+    <li>
+        <input type="radio" id="1dollar" name="donationAmount" value="1" class="hidden peer" required>
+        <label for="1dollar" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-yellow-600 peer-checked:text-yellow-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 ">
+            <div class="block">
+                <div class="w-full text-lg font-semibold">$1</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input type="radio" id="2dollar" name="donationAmount" value="10" class="hidden peer">
+        <label for="2dollar" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-yellow-600 peer-checked:text-yellow-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <div class="block">
+                <div class="w-full text-lg font-semibold">$10</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input type="radio" id="25dollar" name="donationAmount" value="25" class="hidden peer">
+        <label for="25dollar" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-yellow-600 peer-checked:text-yellow-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <div class="block">
+                <div class="w-full text-lg font-semibold">$25</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input type="radio" id="50dollar" name="donationAmount" value="50" class="hidden peer">
+        <label for="50dollar" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-yellow-600 peer-checked:text-yellow-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <div class="block">
+                <div class="w-full text-lg font-semibold">$50</div>
+            </div>
+        </label>
+    </li>
+</ul>
+
+                </div>
+           @endif
+
+            @if ($currentDonationType == 2)
+            <ul class="columns-2 w-6/12">
+                <li>
+                    <input type="radio" id="1dollar" name="donationAmount" value="10" class="hidden peer" required>
+                    <label for="1dollar" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-yellow-600 peer-checked:text-yellow-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 ">
+                        <div class="block">
+                            <div class="w-full text-lg font-semibold">$10</div>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <input type="radio" id="2dollar" name="donationAmount" value="50" class="hidden peer">
+                    <label for="2dollar" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-yellow-600 peer-checked:text-yellow-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <div class="block">
+                            <div class="w-full text-lg font-semibold">$50</div>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <input type="radio" id="25dollar" name="donationAmount" value="100" class="hidden peer">
+                    <label for="25dollar" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-yellow-600 peer-checked:text-yellow-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <div class="block">
+                            <div class="w-full text-lg font-semibold">$100</div>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <input type="radio" id="50dollar" name="donationAmount" value="200" class="hidden peer">
+                    <label for="50dollar" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-yellow-600 peer-checked:text-yellow-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <div class="block">
+                            <div class="w-full text-lg font-semibold">$200</div>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+            @endif
             <span class="text-danger">@error('donationAmount'){{ $message }}@enderror</span>
 
             </div>
@@ -38,7 +106,7 @@
     @if ($currentStep == 2)
         {{-- STEP 2 --}}
 
-        <div class="step2 form-box bg-slate-100 max-w-4xl px-6 py-6 mx-auto mt-12 shadow-lg">
+        <div class="step2 form-box mb-6 bg-slate-100 max-w-4xl px-6 py-6 mx-auto mt-12 shadow-lg">
             <table class="bg-slate-600 w-full text-center my-5 shadow-xl">
                 <tr>
                     <td><h1 class="text-2xl pt-6 font-bold text-green-600">Step 1</h1> <h4 class="font-bold pb-6 text-green-600">Donation</h4></td>
@@ -81,7 +149,7 @@
     @if ($currentStep == 3)
         {{-- STEP 3 --}}
 
-        <div class="step3 form-box bg-slate-100 max-w-4xl px-6 py-6 mx-auto mt-12 shadow-lg">
+        <div class="step3 form-box mb-6 bg-slate-100 max-w-4xl px-6 py-6 mx-auto mt-12 shadow-lg">
             <table class="bg-slate-600 w-full text-center my-5 shadow-xl">
                 <tr>
                     <td><h1 class="text-2xl pt-6 font-bold text-green-600">Step 1</h1> <h4 class="font-bold pb-6 text-green-600">Donation</h4></td>
@@ -91,11 +159,10 @@
                 </tr>
             </table>
             <hr>
-            <div class="form-content ml-12">
-                <label for="fullname" class="font-bold text-slate-600">Card Holder's Full Name *</label> <br>
+                <label for="cardFullName" class="font-bold text-slate-600">Card Holder's Full Name *</label> <br>
                 <input class="h-12 pl-6 bg-slate-200 w-11/12 mt-2" type="text" placeholder="Card holder's Full name" name="cardFullName" id="cardFullName" required wire:model="cardFullName"> <br> <br>
-                <label for="fullname" class="font-bold text-slate-600 ">Credit Card Number *</label> <br>
-                <input class="h-12 pl-6 bg-slate-200 w-11/12 mt-2" type="text" placeholder="CC Number" name="ccNumber" id="ccNumber" required wire:model="wire:model="""> <br> <br>
+                <label for="ccNumber" class="font-bold text-slate-600 ">Credit Card Number *</label> <br>
+                <input class="h-12 pl-6 bg-slate-200 w-11/12 mt-2" type="number" placeholder="CC Number" name="ccNumber" id="ccNumber" required wire:model="ccNumber"> <br> <br>
                 <label for="fullname" class="font-bold text-slate-600">Card Type *</label> <br>
                 <select id="ccType" class="h-12 bg-slate-200 w-11/12 font-bold pl-4 mt-2" name="ccType" wire:model="ccType" >
                     <option value="">Select Card Type</option>
@@ -137,15 +204,16 @@
                         <option value="2030">2030</option>
                     </select>
                     <label for="fullname" class="font-bold text-slate-600 ml-32">CVV *</label>
-                <input class="h-12 pl-6 bg-slate-200 w-2/12 ml-6 border-black" type="text" placeholder="CVV" name="cvv" id="cvv" required wire:model="cvv"> <br> <br>
+                <input class="h-12 pl-6 bg-slate-200 w-2/12 ml-6 border-black" type="number" placeholder="CVV" name="cvv" id="cvv" required wire:model="cvv"> <br> <br>
                 </div>
                 <div class="donationamount">
                     <h1 class="font-bold text-2xl">Today's Donation : <span class="text-green-600">$value</span> </h1>
                 </div>
-        </div>
+
 
 
     @endif
+
     <div class="w-4/12 my-5 ml-12 ">
 
 
