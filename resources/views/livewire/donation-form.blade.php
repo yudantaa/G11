@@ -15,16 +15,18 @@
             <hr>
             <div class="form-content ml-12">
                 <label for="subscriptionType" class="text-xl py-6 font-bold">Donation Type</label> <br>
-            <div class="donation-type">
-                    <button type="button" class="btn-square bg-slate-400 w-2/12 text-white font-bold text-l my-4 active:bg-yellow-600 focus:bg-yellow-600" wire:click="setDaily()">Daily</button>
-                    <button type="button" class="btn-square bg-slate-400 w-2/12 text-white font-bold text-l my-4 active:bg-yellow-600 focus:bg-yellow-600" wire:click="setMonthly()">Monthly</button>
+            <div class="donation-type mt-6">
+                    <input type="radio" name="daily" id="daily" value="daily" class="hidden peer" required>
+                    <label for="daily" class="btn-square bg-slate-400 w-2/12 text-white font-bold text-l my-4 active:bg-yellow-600 focus:bg-yellow-600 p-4 cursor-pointer   " wire:click="setDaily()">Daily </label>
+                    <input type="radio" name="monthly" id="monthly" value="monthly" class="hidden peer" required>
+                    <label for="monthly" class="btn-square p-4 ml-4 bg-slate-400 w-2/12 text-white font-bold text-l my-4 active:bg-yellow-600 focus:bg-yellow-600 cursor-pointer" wire:click="setMonthly()">Monthly </label>
             </div>
             <span class="text-red-600">@error('subscriptionType'){{ $message }}@enderror</span>
                 <br>
             <label for="donationAmount" class="text-xl py-6 font-bold">Donation Amount</label> <br>
            @if ($currentDonationType == 1)
                 <div class="amount">
-<ul class="columns-2 w-6/12  ">
+<ul class="columns-2 w-6/12 cursor-pointer ">
     <li>
         <input type="radio" id="1dollar" name="donationAmount" value="1" class="hidden peer" required>
         <label for="1dollar" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-yellow-600 peer-checked:text-yellow-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 ">
@@ -139,8 +141,6 @@
 
                 <label for="phone" class="font-bold text-slate-600">Phone Number *</label> <span class="text-red-600">@error('phone'){{ $message }}@enderror</span><br>
                 <input class="h-12 pl-6 bg-slate-200 w-11/12" type="number" placeholder="Phone Number" name="phone" id="phone" required wire:model="phone"> <br> <br>
-
-
             </div>
 
 
