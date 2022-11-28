@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    @vite('resources/css/app.css')
-</head>
+@extends('layout.main')
+@section('component_content')
 
-<body class="font-poppins">
+<main class="font-poppins">
     <h3 class="hidden">loggin as {{ auth()->user()->role }}</h3>
     
 
@@ -95,5 +88,5 @@
         </div> <!-- bg-dashboard-info -->
 
     </div> <!-- bg-admin -->
-</body>
-</html>
+</main>
+@endsection
