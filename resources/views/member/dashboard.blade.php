@@ -6,7 +6,7 @@
     <div class="bg-dashboard-member bg-[#FFFCF0] min-h-screen max-h-fit px-[147px] py-[55px]">
         <div
             class="welcome-board bg-[#FFFDF6] h-[100px] flex items-center justify-center text-[20px] text-[#282222] font-semibold shadow-[0px_8px_50px_rgba(174,168,135,0.5)] mb-[55px]">
-            <h1>Welcome to your dashboard!</h1>
+            <h1>Welcome to {{ auth()->user()->role }} dashboard, {{ auth()->user()->username }}!</h1>
         </div> <!-- welcome-board -->
         <div class="dashboard-member-information h-[481px] w-full flex flex-row justify-between space-x-[5rem]">
             <div

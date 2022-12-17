@@ -45,7 +45,7 @@ Route::controller(PublicPageController::class)->group(function () {
 });
 
 //  member  controller
-Route::controller(MemberManagementController::class)->middleware('roles:member,donor')->group(function () {
+Route::controller(MemberManagementController::class)->middleware('roles:member,donor,caregiver')->group(function () {
     Route::prefix('member')->group(function () {
         Route::get('package/{id}', 'packageFood')->name('meal.package');
         Route::get('survey', 'serviceSurvey')->name('member.survey');

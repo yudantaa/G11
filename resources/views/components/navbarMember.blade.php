@@ -17,7 +17,7 @@
 
         </div> <!-- bg-nav-logo -->
 
-        @if (!Request::path('survey'))
+        @if (!Request::is('survey'))
         <div class="bg-nav-homepage flex items-center justify-center">
             <a href="{!! route('meal.menu') !!}">
                 <button class="text-[#FFFDF6] border-2 border-[#FFFDF6] p-[24px] duration-700 hover:scale-105">Back to
@@ -25,7 +25,13 @@
             </a>
         </div><!-- bg-nav-homepage -->
         @elseif(!Request::path('volunteer'))
-        <div>test button</div>
+        @else
+        <div class="bg-nav-homepage flex items-center justify-center">
+            <a href="{!! route('meal.menu') !!}">
+                <button class="text-[#FFFDF6] border-2 border-[#FFFDF6] p-[24px] duration-700 hover:scale-105">Back to
+                    Homepage</button>
+            </a>
+        </div><!-- bg-nav-homepage -->
         @endif
     </div> <!-- bg-navbar -->
 </navbar>
