@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\User;
-
 use App\Models\User;
 use App\Models\Geolocation;
 use Illuminate\Http\Request;
